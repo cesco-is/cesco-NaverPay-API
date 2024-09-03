@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cesco.FW.Global.DevExpressUtil</name>
+    </assembly>
+    <members>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.AuthClass.CheckAuthControl">
+            <summary>
+            CheckAuthControl
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.CheckAuthControl.GetAllControl(DevExpress.XtraEditors.XtraUserControl,System.String,System.String)">
+            <summary>
+            XtraUserControl 내의 모든 컨트롤을 받아옵니다
+            </summary>
+            <param name="xUc">해당클래스</param>
+            <param name="NameSpace">네임스페이스</param>
+            <param name="strUserId">접속자 사번</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.CheckAuthControl.CheckControlYN(DevExpress.XtraEditors.XtraUserControl,System.String,System.String)">
+            <summary>
+            사용안함
+            </summary>
+            <param name="xUc">-</param>
+            <param name="NameSpace">-</param>
+            <param name="strUserId">-</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.CheckAuthControl.GetAllControl(DevExpress.XtraEditors.XtraForm,System.String)">
+            <summary>
+            xtraForm 내의 모든 컨트롤을 받아옵니다
+            </summary>
+            <param name="xFm">해당클래스(폼)</param>
+            <param name="NameSpace">네임스페이스</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.CheckAuthControl.CheckAuth">
+            <summary>
+            CheckAuth
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl">
+            <summary>
+            컨트롤 지정 클래스
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.MakeArray(System.Windows.Forms.Form,System.String,System.String)">
+            <summary>
+            화면내 모든 컨트롤을 답기 위한 함수입니다.
+            </summary>
+            <param name="frm">해당 폼</param>
+            <param name="controlName">컨트롤명칭</param>
+            <param name="seperator">seperator</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.GetAllControls(System.Windows.Forms.Control)">
+            <summary>
+            Function to retrieve all the controls on the form
+            </summary>
+            <param name="container">Control to retrieve controls from</param>
+            <returns>A populated ArrayList</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.GetControlArray(System.Windows.Forms.Form,System.String,System.String)">
+            <summary>
+            Creates a control array (any type control) with controls that have the same name pattern
+            such as Control_1, Control_2...
+            </summary>
+            <param name="frm">Form the search for controls on</param>
+            <param name="controlName">Name of the control</param>
+            <param name="seperator">Name of the control</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.GetControl(System.Collections.ArrayList,System.String,System.Int32)">
+            <summary>
+            Function to retrieve a control by
+            A) Name
+            B)/> Index in the provided ArrayList
+            </summary>
+            <param name="list">ArrayList of controls</param>
+            <param name="controlName">Name of the control we're looking for</param>
+            <param name="listIndex">The controls index in the array</param>
+            <returns>A control</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.IsNumeric(System.String)">
+             <summary>
+             Function to check if a value is numeric. 
+             </summary>
+             <param name="value">Value to check</param>
+             <returns>True/False</returns>
+             <remarks>
+             I chose to go with my own function as there are times when 
+             the built in IsNumeric returns false positives and vicea versa
+            </remarks>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.AuthClass.ArrayControl.Strip(System.String)">
+             <summary>
+             Function to mimic the Val() function in legacy VB. 
+             </summary>
+             <param name="value">String we want the numeric values from</param>
+             <returns>Integer</returns>
+             <remarks>
+             I chose to go with my own functions because I didnt want to use 
+             legacy libraries and there really isnt an intrinsic method in
+             VB.Net to mimic the Val() function
+            </remarks>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Editor.RepositoryItem">
+            <summary>
+            RepositoryItem 편하게~
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Editor.RepositoryItem.BindingRepositoryItemLookUpEdit(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit,System.Data.DataTable)">
+            <summary>
+            RepositoryItemLookUpEdit 바인딩
+            </summary>
+            <param name="rilue">셋팅할 RepositoryItemLookUpEdit</param>
+            <param name="dtSource">첫번째컬럼이 CODE, 두번째컬럼이 NAME</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Editor.RepositoryItem.BindingRepositoryItemLookUpEdit(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit,System.Data.DataTable,System.String,System.String)">
+            <summary>
+            RepositoryItemLookUpEdit 바인딩
+            </summary>
+            <param name="rilue">셋팅할 RepositoryItemLookUpEdit</param>
+            <param name="dtSource">소스 Table</param>
+            <param name="codeFieldName">Value필드</param>
+            <param name="nameFieldName">Display필드</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.DownloadExcelCommon">
+            <summary>
+            그리드 컨트롤 엑셀 다운로드 공용
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.DownloadExcelCommon.GetDownloadReason">
+            <summary>
+            사유 팝업
+            </summary>
+            <returns>사유</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.DownloadExcelCommon.SelectDownLoadPath">
+            <summary>
+            다운로드 path 가져오기
+            </summary>
+            <returns>선택한 파일</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.DownloadExcelCommon.FileFSDEncryption(System.String,System.String)">
+            <summary>
+            문서보안 적용
+            </summary>
+            <param name="fileName">파일이름</param>
+            <param name="userId">접속자 사번</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.DownLoadReasonPopup.DownLoadReason">
+            <summary>
+            다운로드 사유
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.DownLoadReasonPopup.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.DownLoadReasonPopup.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.DownLoadReasonPopup.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.ConvertDataTable">
+            <summary>
+            ConvertDataTable Class
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertDataTable.ConvertGridViewDataTable(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            그리드 컨트롤을 이용하여 데이터 테이블 뼈대 작성
+            그리드 컬럼의 Tag값을 이용하여 해당 컬럼의 데이터형식을 지정함(기본값은 string)
+            </summary>
+            <param name="grid">데브 그리드 컨트롤</param>
+            <returns>데이터 테이블 뼈대</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertDataTable.ConvertGridViewDataTable(DevExpress.XtraGrid.Views.BandedGrid.BandedGridView)">
+            <summary>
+            그리드 컨트롤을 이용하여 데이터 테이블 뼈대 작성 (컬럼의 Tag값에 값 형식 명시)
+            </summary>
+            <param name="view">DevExpress BandedGridView</param>
+            <returns>데이터 테이블 뼈대</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertDataTable.ConvertGridViewDataTable(DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            그리드 컨트롤을 이용하여 데이터 테이블 뼈대 작성 (컬럼의 Tag값에 값 형식 명시)
+            </summary>
+            <param name="view">DevExpress GridView</param>
+            <returns>데이터 테이블 뼈대</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertDataTable.GetType(System.Object)">
+            <summary>
+            그리드 컬럼의 Tag값을 이용하여 해당 컬럼의 데이터형식을 지정함(기본값은 string)
+            </summary>
+            <param name="tag">그리드 컬럼의 Tag값</param>
+            <returns>데이터 컬럼의 데이터 타입</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.ConvertExcel">
+            <summary>
+            GridControl >> Excel 파일 변환 기능
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertExcel.GridToExcel(DevExpress.XtraPivotGrid.PivotGridControl,System.String)">
+            <summary>
+            엑셀저장 - 문서보안 적용버전
+            </summary>
+            <param name="gridControl">변환할 그리드 컨트롤</param>
+            <param name="userId">접속자 사번</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertExcel.GridToExcelReturnName(DevExpress.XtraPivotGrid.PivotGridControl,System.String)">
+            <summary>
+            엑셀저장 - 문서보안 적용버전
+            </summary>
+            <param name="gridControl">변환할 그리드 컨트롤</param>
+            <param name="userId">접속자 사번</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertExcel.GridToExcel(DevExpress.XtraGrid.GridControl,System.String)">
+            <summary>
+            엑셀저장 - 문서보안 적용버전
+            </summary>
+            <param name="gridControl">변환할 그리드 컨트롤</param>
+            <param name="userId">접속자 사번</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ConvertExcel.GridToExcelReturnName(DevExpress.XtraGrid.GridControl,System.String)">
+            <summary>
+            엑셀저장 - 문서보안 적용버전
+            </summary>
+            <param name="gridControl">변환할 그리드 컨트롤</param>
+            <param name="userId">접속자 사번</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption">
+            <summary>
+            스타일 컨디션 옵션
+            항목 옵션
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.#ctor">
+            <summary>
+            옵션 생성자
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.ApplyToRow">
+            <summary>
+            전체행 적용 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.ExpressionString">
+            <summary>
+            <para>공식</para>
+            <para>ex : "[필드명] == '값'"</para>
+            <para>ex : "[필드명] != [필드명] AND [필드명] != '값'"</para>
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.ForeColor">
+            <summary>
+            폰트컬러
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.Font">
+            <summary>
+            폰트
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.BackColor1">
+            <summary>
+            배경 컬러(단독으로 들어갈 경우 단색 효과)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption.BackColor2">
+            <summary>
+            배경 컬러(이 값이 들어 있으면 Color1 과 그라디에이션 효과가 적용됩니다.)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.GridDB">
+            <summary>
+            GridDB Class
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.GridControlSource">
+            <summary>
+            그리드 컨트롤
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.ProcedureName">
+            <summary>
+            프로시저명
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetGrid(System.String,System.String,System.String)">
+            <summary>
+            그리드뷰 셋팅
+            </summary>
+            <param name="screenNo">화면No</param>
+            <param name="searchYMD">조회일자</param>
+            <param name="userId">접속자사번</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetFormat(System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="dtFormat"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetLayout(System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            레이아웃 셋팅
+            </summary>
+            <param name="dtBands">밴드 테이블</param>
+            <param name="dtColumns">컬럼 테이블</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetColumnOption(System.Data.DataTable)">
+            <summary>
+            컬럼 옵션 셋팅
+            </summary>
+            <param name="dtOption">컬럼 옵션</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetSummary(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,DevExpress.Data.SummaryItemType,System.String)">
+            <summary>
+            Summary 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="type"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetDisplayFormat(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            Displayformat 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetHAlignment(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            셀 가로정렬 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetVAlignment(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            셀 가로정렬 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetBackColor1(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            BackColor1 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetBackColor2(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            BackColor2 셋팅 (1번값이 셋팅되지 않으면 셋팅하지 않음)
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetForeColor(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            폰트색상 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetFont(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            폰트셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetAllowEdit(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            수정여부
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetReadOnly(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            읽기 전용 셋팅
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridDB.SetAllowMerge(DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn,System.String)">
+            <summary>
+            머지 확인
+            </summary>
+            <param name="col"></param>
+            <param name="option"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.GridEasyAddExpression">
+            <summary>
+            그리드 뷰의 조건 별 셋팅함수
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridEasyAddExpression.AddExpression(DevExpress.XtraGrid.Views.Grid.GridView,Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption)">
+            <summary>
+            Grid 조건식 양식 데이터 추가
+            </summary>
+            <param name="view">그리드 뷰</param>
+            <param name="expressionOption">조건</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridEasyAddExpression.AddExpression(DevExpress.XtraGrid.Views.Grid.GridView,DevExpress.XtraGrid.Columns.GridColumn,Cesco.FW.Global.DevExpressUtil.Grid.ExpressionOption)">
+            <summary>
+            Grid 조건식 양식 데이터 추가
+            </summary>
+            <param name="view">그리드 뷰</param>
+            <param name="gridColumn">그리드 컬럼</param>
+            <param name="expressionOption">조건</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler">
+            <summary>
+            GridHandler Class
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.RowIndicatorDraw(DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs,System.Object,System.Boolean)">
+            <summary>
+            RowIndicator에 숫자 붙이기입니다.
+            GridView 의 CustomDrawRowIndicator 에 붙여 주세요.
+            </summary>
+            <param name="e">이벤트 인자값</param>
+            <param name="sender">그리드뷰</param>
+            <param name="totalCountView">전체 행 수 보여줄까요?</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.RowIndicatorDraw(DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs,System.Object,System.Boolean,System.Single)">
+            <summary>
+            RowIndicator에 숫자 붙이기입니다.
+            GridView 의 CustomDrawRowIndicator 에 붙여 주세요.
+            </summary>
+            <param name="e">이벤트 인자값</param>
+            <param name="sender">그리드뷰</param>
+            <param name="totalCountView">전체 행 수 보여줄까요?</param>
+            <param name="fontSize">폰트 사이즈</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.RowIndicatorDraw(DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs,System.Object,System.Boolean,System.Single,DevExpress.Utils.HorzAlignment)">
+            <summary>
+            RowIndicator에 숫자 붙이기입니다.
+            GridView 의 CustomDrawRowIndicator 에 붙여 주세요.
+            </summary>
+            <param name="e">이벤트 인자값</param>
+            <param name="sender">그리드뷰</param>
+            <param name="totalCountView">전체 행 수 보여줄까요?</param>
+            <param name="fontSize">폰트 사이즈</param>
+            <param name="horzAligment">정렬 위치</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.SummaryItemAdd(DevExpress.XtraGrid.Columns.GridColumn,DevExpress.Data.SummaryItemType)">
+            <summary>
+            합계행 표시
+            </summary>
+            <param name="col">컬럼</param>
+            <param name="summaryType">합계행타입</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.SummaryItemAdd(DevExpress.XtraGrid.Columns.GridColumn,DevExpress.Data.SummaryItemType,System.String)">
+            <summary>
+            Summary 행 셋팅
+            </summary>
+            <param name="col">Summary 표시행</param>
+            <param name="summaryType">Summary 타입</param>
+            <param name="formatString">Formatstring</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.SummaryItemAdd(DevExpress.XtraGrid.Columns.GridColumn,DevExpress.Data.SummaryItemType,System.String,System.String)">
+            <summary>
+            Summary 행 셋팅
+            </summary>
+            <param name="col">Summary 표시행</param>
+            <param name="summaryType">Summary 타입</param>
+            <param name="formatString">Formatstring</param>
+            <param name="name">summary 식별이름</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridHandler.SummaryItemSetValue(DevExpress.XtraGrid.Columns.GridColumn,System.String,System.String)">
+            <summary>
+            Summary Item Value 셋팅
+            </summary>
+            <param name="col">Summary가 있는 컬럼</param>
+            <param name="summaryName">Summary의 필드명</param>
+            <param name="value">셋팅할 값</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.GridViewColorHandler">
+            <summary>
+            그리드 셀 색상 변경 하기
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridViewColorHandler.#ctor">
+            <summary>
+            기초생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridViewColorHandler.SetDefaultDeptRankStyleFormatCondition(DevExpress.XtraGrid.Views.Grid.GridView,DevExpress.XtraGrid.Columns.GridColumn)">
+            <summary>
+            순위 색상 표현
+            </summary>
+            <param name="view"></param>
+            <param name="column"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.GridViewColorHandler.SetDefaultDeptRankStyleFormatCondition(DevExpress.XtraGrid.Views.Grid.GridView,DevExpress.XtraGrid.Columns.GridColumn,System.String)">
+            <summary>
+            순위 색상 표현
+            </summary>
+            <param name="view"></param>
+            <param name="column"></param>
+            <param name="addExpressionString"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.Grid.ViewToDataTable">
+            <summary>
+            ViewToDataTable Class
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ViewToDataTable.GetDataTable(System.Object)">
+            <summary>
+            View 를 DataTable 로 변환
+            </summary>
+            <param name="view"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.Grid.ViewToDataTable.GetType(System.Object)">
+            <summary>
+            그리드 컬럼의 Tag값을 이용하여 해당 컬럼의 데이터형식을 지정함(기본값은 string)
+            </summary>
+            <param name="tag">그리드 컬럼의 Tag값</param>
+            <returns>데이터 컬럼의 데이터 타입</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.GridDownloadOption">
+            <summary>
+            그리드 다운로드 옵션
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.ConnUserNo">
+            <summary>
+            접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.RealUserNo">
+            <summary>
+            실 접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.SystemId">
+            <summary>
+            시스템 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.MenuId">
+            <summary>
+            메뉴 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.FunctionId">
+            <summary>
+            기능 ID (기능 ID)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.Remark">
+            <summary>
+            비고
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DevExpressUtil.GridDownloadOption.IsOpenFile">
+            <summary>
+            파일 열기 여부
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.PGridControlDownloadToExcel">
+            <summary>
+            피벗 그리드 엑셀 다운로드
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.PGridControlDownloadToExcel.DownLoadToExcel(DevExpress.XtraPivotGrid.PivotGridControl,Cesco.FW.Global.DevExpressUtil.GridDownloadOption)">
+            <summary>
+            다운로드 엑셀
+            </summary>
+            <param name="control">피벗그리드</param>
+            <param name="option">다운로드</param>
+            <returns>파일경로</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.GridControlDownloadToExcel">
+            <summary>
+            그리드 컨트롤 엑셀 다운로드
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.GridControlDownloadToExcel.DownLoadToExcel(DevExpress.XtraGrid.GridControl,Cesco.FW.Global.DevExpressUtil.GridDownloadOption)">
+            <summary>
+            다운로드 엑셀
+            </summary>
+            <param name="control">그리드 컨트롤</param>
+            <param name="option">옵션</param>
+            <returns>파일이름</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DevExpressUtil.MainFrame.LoadClass">
+            <summary>
+            CESNET 2.0 Class 로드
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.MainFrame.LoadClass.LoadToCesnet2TapApproach(System.Object,System.Object,System.String,System.String,System.String)">
+            <summary>
+            CESNET 2.0 MainFrame TabPage에 Class 로드 - 이미 해당 탭이 로드 되어 있을 경우 AutoValidate 이벤트를 발생 시킵니다.
+            (Class를 로드한 상태에서 접근할 때용)
+            </summary>
+            <param name="parentForm">상위 폼(ex : this.ParentForm)</param>
+            <param name="loadClass">로드할 클레스(object)</param>
+            <param name="menuName">메뉴명</param>
+            <param name="menuID">해당ID(cesnet2.dbo.TB_cesnet_menuid 참조)</param>
+            <param name="tagValue">TagValue(이 값은 AutoValidate 이벤트를 이용하여 리플레쉬 할때 쓰입니다.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.MainFrame.LoadClass.FindXtraTabControl(System.Windows.Forms.Form)">
+            <summary>
+            XtraTabControl을 찾음
+            </summary>
+            <param name="form">상위폼</param>
+            <returns>XtraTabControl</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.MainFrame.LoadClass.LoadToCesnet2TapApproach(System.Object,System.Reflection.Assembly,System.String,System.String,System.Object[],System.String,System.String,System.String)">
+            <summary>
+            CESNET 2.0 MainFrame TabPage에 Class 로드 - 이미 해당 탭이 로드 되어 있을 경우 AutoValidate 이벤트를 발생 시킵니다.
+            (Class를 로드하지 않은 상태에서 접근할 때용 - dll 파일이 로드되는 dll과 같은 위치에 있을 경우)
+            </summary>
+            <param name="parentForm">상위 폼(ex : this.ParentForm)</param>
+            <param name="executingAssembly">자기 자신dll Assembly(ex :System.Reflection.Assembly.GetExecutingAssembly())</param>
+            <param name="fileName">조회할 파일 dll(ex: MainFrame.dll)</param>
+            <param name="loadClassName">로드할 클레스 FullName(ex : Cesco.FW.Global.XtraUserControl1)</param>
+            <param name="args">Class에 넘길 생성자 값(순서대로 나열)</param>
+            <param name="menuName">메뉴명</param>
+            <param name="menuID">해당ID(cesnet2.dbo.TB_cesnet_menuid 참조)</param>
+            <param name="tagValue">TagValue(이 값은 AutoValidate 이벤트를 이용하여 리플레쉬 할때 쓰입니다.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DevExpressUtil.MainFrame.LoadClass.LoadToCesnet2TapApproach(System.Object,System.String,System.String,System.Object[],System.String,System.String,System.String)">
+            <summary>
+            CESNET 2.0 MainFrame TabPage에 Class 로드 - 이미 해당 탭이 로드 되어 있을 경우 AutoValidate 이벤트를 발생 시킵니다.
+            (Class를 로드하지 않은 상태에서 접근할 때용 - dll 파일이 로드되는 dll과 같은 위치에 없을 경우)
+            </summary>
+            <param name="parentForm">상위 폼(ex : this.ParentForm)</param>
+            <param name="fileFullName">조회할 파일 dll의 Funn Path(ex : D:\\00_C#\\00_WORKSPACE\\01_FRAMEWORK\\MainFrame.dll)</param>
+            <param name="loadClassName">로드할 클레스 FullName(ex : Cesco.FW.Global.XtraUserControl1)</param>
+            <param name="args">Class에 넘길 생성자 값(순서대로 나열)</param>
+            <param name="menuName">메뉴명</param>
+            <param name="menuID">해당ID(cesnet2.dbo.TB_cesnet_menuid 참조)</param>
+            <param name="tagValue">TagValue(이 값은 AutoValidate 이벤트를 이용하여 리플레쉬 할때 쓰입니다.)</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

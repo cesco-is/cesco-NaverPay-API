@@ -1,0 +1,2057 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cesco.FW.Global.DBAdapter</name>
+    </assembly>
+    <members>
+        <member name="T:Cesco.FW.Global.DBAdapter.CescoLogs">
+            <summary>
+            세스코 로그 관리
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.#ctor(System.String,System.String,System.String)">
+            <summary>
+            로그 생성자
+            </summary>
+            <param name="realUserId">실 사용자 식별값(Debug를 위해 다른 사용자로 접근했을 경우 실 사용자와 접속 사용자가 다릅니다.)</param>
+            <param name="connUserId">접속 사용자 식별값(Debug를 위해 다른 사용자로 접근했을 경우 실 사용자와 접속 사용자가 다릅니다.)</param>
+            <param name="systemId">시스템</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.CescoLogs.BindingConfig">
+            <summary>
+            바인딩 관련 변수 입니다.(상세하게 바인딩에 대해서 설정하시려면 이 옵션의 값을 변경하세요.)
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.ThrowWcfException(System.Exception)">
+            <summary>
+            Wcf Fault Error 처리
+            </summary>
+            <param name="faultException"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.LoginLogAppend">
+            <summary>
+            로그인 로그
+            </summary>
+            <returns>결과 (실패시 메시지 처리)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.LoginLogDBAppend(System.String)">
+            <summary>
+            로그인 로그 (DB)
+            </summary>
+            <param name="remark">메모</param>
+            <returns>결과 (실패시 메시지 처리)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.MenuAccessLogAppend(System.String)">
+            <summary>
+            메뉴 접근 로그
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <returns>결과 (실패시 메시지 처리)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.MenuAccessLogDBAppend(System.String,System.String)">
+            <summary>
+            메뉴 접근 로그 (DB)
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="remark">메모</param>
+            <returns>결과 (실패시 메시지 처리)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.FunctionAccessLogAppend(System.String,System.String,System.String)">
+            <summary>
+            기능 접근 로그
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="functionLog">기능 로그</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.FunctionAccessLogDBAppend(System.String,System.String,System.String)">
+            <summary>
+            기능 접근 로그
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.AuthChangeLogAppend(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            권한 변경 로그
+            </summary>
+            <param name="authTargetUserId">권한 부여자 식별자</param>
+            <param name="authMenuId">권한 메뉴 ID</param>
+            <param name="authItemId">권한 항목 ID</param>
+            <param name="authOperCode">권한 연산자 코드(부여 : I, 변경 : U, 회수 : D)</param>
+            <param name="authOperLog">특이 로그</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.AuthChangeLogAppendDB(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            권한 변경 로그 (DB)
+            </summary>
+            <param name="permissionTargetUserId">권한 부여자 사번</param>
+            <param name="menuId">권한 메뉴 ID</param>
+            <param name="menuAuthId">권한 항목 ID</param>
+            <param name="crudCode">권한 연산자 코드(부여 : C, 변경 : U, 회수 : D)</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.IndiInfoAccessAppend(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            개인정보 접근 로그
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="crudCode">CRUD Code</param>
+            <param name="accessQuery">조회 쿼리</param>
+            <param name="accessParam">조회 파라미터</param>
+            <param name="accessRowCount">조회 건수</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.IndiInfoAccessAppendDB(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            개인정보 접근 로그 (DB)
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="query">쿼리</param>
+            <param name="param">파라미터</param>
+            <param name="crud">CRUD</param>
+            <param name="rowCount">조회 건수</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoLogs.IndiInfoDownLoadAppendDB(System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            개인정보 다운로드 로그 (DB)
+            </summary>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="filePath">쿼리</param>
+            <param name="rowCount">다운로드 행수</param>
+            <param name="downloadRemark">다운로드 사유</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.CesDB">
+            <summary>
+            CesDB
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CesDB.ProcedureToDataSetCompress(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            Azure 데이터 조회
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Configuration">
+            <summary>
+            옵션
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Configuration.CreateServerUriString(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            WCF URI 가져오기
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Configuration.CreateBinding(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            WSHttpBinding 옵션 처리
+            </summary>
+            <param name="config">WCF 옵션</param>
+            <returns>바인딩</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ConfigurationDetail">
+            <summary>
+            DB Connection Option 입니다.
+            App.Config를 대체합니다.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.#ctor">
+            <summary>
+            기본 생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.#ctor(Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts)">
+            <summary>
+            생성자
+            </summary>
+            <param name="timeout">Timeout 시간</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.#ctor(Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName)">
+            <summary>
+            생성자
+            </summary>
+            <param name="dbName">접속할 DB</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.#ctor(Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts,Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName)">
+            <summary>
+            생성자
+            </summary>
+            <param name="timeout">Timeout 시간</param>
+            <param name="dbName">접속할 DB</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.SetWcfConfigByFile">
+            <summary>
+            XML 파일 읽기
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName">
+            <summary>
+            DB Name
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.CESNET2">
+            <summary>
+            MainDB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.TESTSERVER">
+            <summary>
+            TEST DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.DEVELOPDB">
+            <summary>
+            개발 DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.EDU_DB">
+            <summary>
+            교육용 DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.LIMSDB">
+            <summary>
+            LIMSDB 테스트
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.AZUREIOTDB">
+            <summary>
+            AZURE DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.AZURE_DEV_DB">
+            <summary>
+            AZURE TEST DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.AZURE_STG_DB">
+            <summary>
+            AZURE STAGING DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.AZURAQMEDB">
+            <summary>
+            AZURE DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.DBName.CESCOCHINA">
+            <summary>
+            CHINA DB
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts">
+            <summary>
+            DB시간
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.DEFAULT">
+            <summary>
+            35초
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.MINUTE1">
+            <summary>
+            1분
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.MINUTE2">
+            <summary>
+            2분
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.MINUTE5">
+            <summary>
+            5분
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.MINUTE10">
+            <summary>
+            10분
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOuts.MAX">
+            <summary>
+            30분
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.ServerUriString">
+            <summary>
+            URI 주소(테스트 용도가 아니라면 값을 넣지 마세요.) : WCF 주소 입니다.
+            기본값 (http://cesnet.cesco.biz/WCF/IISService/WcfCommon/WcfCommonNew.svc)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.ConnectDBName">
+            <summary>
+            접속할 DataBase (Default(MainDb), TestServer(AnoDb)). 기본값은 Default(MainDb) 입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.IsTransaction">
+            <summary>
+            트랜잭션을 사용할지 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.TimeOut">
+            <summary>
+            명령을 실행할 때까지 대기하는 시간(초)입니다.  기본값은 Default(35초) 입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.CloseTimeout">
+            <summary>
+            전송 중 예외가 발생하기 전에 연결을 끊기 위해 제공되는 시간 간격을 가져오거나 설정합니다. 기본값은 1분입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.OpenTimeout">
+            <summary>
+            전송 중에 예외가 발생하기 전에 연결을 설정하기 위해 제공되는 시간 간격을 가져오거나 설정합니다. 기본값은 1분입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.ReceiveTimeout">
+            <summary>
+            연결이 끊어지기 전에 응용 프로그램 메시지가 수신되지 않는 비활성 상태로 유지될 수 있는 시간 간격을 가져오거나 설정합니다. 기본값은 10 분입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.SendTimeout">
+            <summary>
+            전송 중 예외가 발생하기 전에 쓰기 작업을 완료하기 위해 제공되는 시간 간격을 가져오거나 설정합니다. 기본값은 1분입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.MaxReceivedMessageSize">
+            <summary>
+            바인딩에서 처리할 수 있는 메시지의 최대 크기를 가져오거나 설정합니다. 기본값은 131,072 바이트입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.MaxDepth">
+            <summary>
+            최대 중첩 노드 깊이를 가져오거나 설정합니다.기본값은 2,147,483,647입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.MaxStringContentLength">
+            <summary>
+            판독기에서 반환된 최대 문자열 길이를 가져오거나 설정합니다. 기본값은 2,147,483,647 입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.MaxBytesPerRead">
+            <summary>
+            각 읽기에 대해 반환되는 최대 허용 바이트를 가져오거나 설정합니다. 기본값은 2,147,483,647입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.MaxNameTableCharCount">
+            <summary>
+            표 이름에 허용되는 최대 문자 수를 가져오거나 설정합니다. 기본값은 2,147,483,647입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.InactivityTimeout">
+            <summary>
+            서비스를 닫기 전에 서비스가 비활성 상태로 유지될 수 있는 시간 간격을 가져오거나 설정합니다. 기본값은 10 분입니다. 
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ConfigurationDetail.Debug">
+            <summary>
+            WCF DEBUG를 사용할지 여부(기본값 false)
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.GetTimeOut">
+            <summary>
+            Timeout 으로 셋팅된 시간을 초으로 환산하여 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ConfigurationDetail.GetDBName">
+            <summary>
+            DB명을 String으로 환산하여 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ICescoWcfCommon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ICescoWcfCommon.GetTest(System.String,System.Data.SqlClient.SqlCommand)">
+            <summary>
+            
+            </summary>
+            <param name="dbName"></param>
+            <param name="sqlCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ICesDB">
+            <summary>
+            ICesDB
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ICesDB.ProcedureToDataSetCompress(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            ProcedureToDataSetCompress
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf">
+            <summary>
+            WCF용으로 변환 함수
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf.ConvertParamType(Cesco.FW.Global.DBAdapter.Param.ParameterType)">
+            <summary>
+            파라미터 타입 변한 ( WcfCommonNew.WcfParameter.ParameterType ≪≫ Cesco.FW.Global.DBAdapter.Param.ParameterType ) 
+            </summary>
+            <param name="paramType">변경할 파라미터 타입</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf.GetConnInfo(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            WCF 용 DbConnection 정보 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf.GetProcInfo(Cesco.FW.Global.DBAdapter.ProcedureInfo)">
+            <summary>
+            WCF 용 프로시저 정보 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf.GetProcInfo(System.Collections.Generic.List{Cesco.FW.Global.DBAdapter.ProcedureInfo})">
+            <summary>
+            WCF 용 프로시저 정보 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.DbAdapterToWcf.GetLocalInfo(Cesco.FW.Global.DBAdapter.LocalInfo)">
+            <summary>
+            WCF 용 사용자 정보 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.InfoConvert.WcfToDbAdapter">
+            <summary>
+            WCF -> DBAdapter
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.InfoConvert.WcfToDbAdapter.ConvertParamType(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfParameter.ParameterType)">
+            <summary>
+            파라미터 타입 변한 ( WcfCommonNew.WcfParameter.ParameterType ≪≫ Cesco.FW.Global.DBAdapter.Param.ParameterType ) 
+            </summary>
+            <param name="paramType">변경할 파라미터 타입</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.DBAdapterMulti">
+            <summary>
+            다중 프로시저 처리용
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterMulti.#ctor">
+            <summary>
+            다중프로시저 처리 생성자
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapterMulti.BindingConfig">
+            <summary>
+            바인딩 관련 변수 입니다.(상세하게 바인딩에 대해서 설정하시려면 이 옵션의 값을 변경하세요.)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapterMulti.Procedure">
+            <summary>
+            프로시저
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapterMulti.LocalInfo">
+            <summary>
+            사용자 정보
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterMulti.ExcuteToScalar">
+            <summary>
+            <para>다중 프로시저 처리 : 트랜잭션 처리 됩니다</para>
+            <para></para>
+            </summary>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.(첫행 첫열 결과값 배열 리턴)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterMulti.ExcuteToScalar(System.Boolean)">
+            <summary>
+            <para>다중 프로시저 처리</para>
+            <para></para>
+            </summary>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.(첫행 첫열 결과값 배열 리턴)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterMulti.ExecuteScalar">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapterMulti.ExcuteToScalar 를 이용해주세요.</para>
+            <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.IDBAdapterMulti">
+            <summary>
+            DBAdapterMulti Interface
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapterMulti.ExcuteToScalar">
+            <summary>
+            <para>다중 프로시저 처리</para>
+            <para></para>
+            </summary>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.(첫행 첫열 결과값 배열 리턴)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapterMulti.ExecuteScalar">
+            <summary>
+            <para>(X)다중 프로시저 처리(첫행 첫열 결과값 (X)</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            <para></para>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.(첫행 첫열 결과값 배열 리턴)</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.IWcfCommonNew">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteDataSet(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            단일 프로시저 처리 : DataSet : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteDataSet(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리 : DataSet : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteDataSetCompress(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            단일 프로시저 처리 : 압축처리(DataSet) : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>압축된 DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteDataSetCompress(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리 : 압축처리(DataSet) : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>압축된 DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteNonQuery(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            단일 프로시저 처리  : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>UPDATE, INSERT 및 DELETE 문의 경우, 반환 값은 해당 명령의 영향을 받는 행의 수입니다. 다른 형식의 문의 경우에는 반환 값이 -1입니다</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteNonQuery(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리  : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 정보</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>UPDATE, INSERT 및 DELETE 문의 경우, 반환 값은 해당 명령의 영향을 받는 행의 수입니다. 다른 형식의 문의 경우에는 반환 값이 -1입니다</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteScalar(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            단일 프로시저 처리 : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">아웃풋값(Out)</param>
+            <returns>쿼리를 실행하고 쿼리에서 반환된 결과 집합의 첫 번째 행의 첫 번째 열을 반환합니다. 다른 모든 열과 행은 무시됩니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteScalar(Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리 : 사용자 커넥션 정보
+            </summary>
+            <param name="procedureInfo">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 정보</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">Output 값(Out)</param>
+            <returns>쿼리를 실행하고 쿼리에서 반환된 결과 집합의 첫 번째 행의 첫 번째 열을 반환합니다. 다른 모든 열과 행은 무시됩니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteMasterDetailScalar(System.Collections.Generic.List{Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo},Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            <para>다중 프로시저 : 사용자 커넥션 정보 : Transaction 처리됨</para>
+            <para>지원가능 구조 </para>
+            <para>  : Master - Detail 관계 Insert, update, delete  </para>
+            <para>     마스터의 키값이 될 변수는 Parents, 전달받는 자식의 키값은 Child로 셋팅함. 둘의 필드명은 동일해야 함(부모프로시저가 앞으로 와야 합니다.)</para>
+            <para>     (ex 부모 output Filed (작업일자,고객코드) 상속받을 자식 KeyFiled(작업일자, 고객코드))</para>
+            <para>     중요! 한번만 키값을 전달 받을 수 있습니다. 두개 이상의 프로시저에서 Output으로 다음 프로시저에 값을 연속으로 전달하면 오류가 발생함.</para>
+            <para>  : n개 프로시저(관계없는) Insert, update, delete </para>
+            </summary>
+            <param name="procedureInfoList">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">아웃풋값(Out)</param>
+            <returns>각 프로시저별 리턴값 리스트</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteMasterDetailScalar(System.Collections.Generic.List{Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfProcedureInfo},Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@,System.Collections.Generic.Dictionary{System.String,System.Object}@)">
+            <summary>
+            <para>Cesco.FW.Global.DBAdapter 용  다중 프로시저 : 사용자 커넥션 정보 : Transaction 처리됨</para>
+            <para>지원가능 구조 </para>
+            <para>  : Master - Detail 관계 Insert, update, delete  </para>
+            <para>     마스터의 키값이 될 변수는 Parents, 전달받는 자식의 키값은 Child로 셋팅함. 둘의 필드명은 동일해야 함(부모프로시저가 앞으로 와야 합니다.)</para>
+            <para>     (ex 부모 output Filed (작업일자,고객코드) 상속받을 자식 KeyFiled(작업일자, 고객코드))</para>
+            <para>     중요! 한번만 키값을 전달 받을 수 있습니다. 두개 이상의 프로시저에서 Output으로 다음 프로시저에 값을 연속으로 전달하면 오류가 발생함.</para>
+            <para>  : n개 프로시저(관계없는) Insert, update, delete </para>
+            </summary>
+            <param name="procedureInfoList">프로시저 정보</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <param name="outputValue">아웃풋값(Out)</param>
+            <returns>각 프로시저별 리턴값 리스트</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteQueryDataSet(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@)">
+            <summary>
+            단일 프로시저 처리(쿼리문) : DataSet : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteQueryDataSet(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리(쿼리문) : DataSet : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteQueryDataSetCompress(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@)">
+            <summary>
+            단일 프로시저 처리(쿼리문) : 압축처리(DataSet) : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>압축된 DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteQueryDataSetCompress(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리(쿼리문) : 압축처리(DataSet) : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>압축된 DataSet</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteQueryNonQuery(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@)">
+            <summary>
+            단일 프로시저 처리(쿼리문)  : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>UPDATE, INSERT 및 DELETE 문의 경우, 반환 값은 해당 명령의 영향을 받는 행의 수입니다. 다른 형식의 문의 경우에는 반환 값이 -1입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteQueryNonQuery(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리(쿼리문)  : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>UPDATE, INSERT 및 DELETE 문의 경우, 반환 값은 해당 명령의 영향을 받는 행의 수입니다. 다른 형식의 문의 경우에는 반환 값이 -1입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.ExecuteQueryScalar(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,System.String@)">
+            <summary>
+            단일 프로시저 처리(쿼리문) : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>쿼리를 실행하고 쿼리에서 반환된 결과 집합의 첫 번째 행의 첫 번째 열을 반환합니다. 다른 모든 열과 행은 무시됩니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FWExecuteQueryScalar(System.String,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfConnectionInfo,Cesco.FW.Global.DBAdapter.WcfCommonNew.WcfLocalInfo,System.String@)">
+            <summary>
+            Cesco.FW.Global.DBAdapter 용 단일 프로시저 처리(쿼리문) : 사용자 커넥션 정보 : Transaction 처리됨
+            </summary>
+            <param name="query">쿼리</param>
+            <param name="connectionInfo">커넥션 옵션</param>
+            <param name="loclinfo">사용자 정보</param>
+            <param name="errorMsg">에러메시지(Out)</param>
+            <returns>쿼리를 실행하고 쿼리에서 반환된 결과 집합의 첫 번째 행의 첫 번째 열을 반환합니다. 다른 모든 열과 행은 무시됩니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteDataSet_Proc_Compress(System.String,System.String[],System.Object[],System.Int32[],System.Boolean@,System.String@)">
+            <summary>
+            Proc > DataSet 형식의 데이터 압축
+            </summary>
+            <param name="ProcedureName">DB ProcedureName</param>
+            <param name="ParametersName">각 Parameters Name</param>
+            <param name="ParametersValue">각 Parameters Value</param>
+            <param name="DbTypes">각 Parameters DBType(1 : String Type , 2 : Int Type , 3 : Binary Type , 4: DataTime Type , 5: Boolean Type )</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteDataSet_Proc(System.String,System.String[],System.Object[],System.Int32[],System.Boolean@,System.String@)">
+            <summary>
+            Proc > DataSet
+            </summary>
+            <param name="ProcedureName">DB ProcedureName</param>
+            <param name="ParametersName">각 Parameters Name</param>
+            <param name="ParametersValue">각 Parameters Value</param>
+            <param name="DbTypes">각 Parameters DBType(1 : String Type , 2 : Int Type , 3 : Binary Type , 4: DataTime Type , 5: Boolean Type )</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteScalar_Proc(System.String,System.String[],System.Object[],System.Int32[],System.Boolean@,System.String@)">
+            <summary>
+            Proc > Scalar
+            </summary>
+            <param name="ProcedureName">DB ProcedureName</param>
+            <param name="ParametersName">각 Parameters Name</param>
+            <param name="ParametersValue">각 Parameters Value</param>
+            <param name="DbTypes">각 Parameters DBType(1 : String Type , 2 : Int Type , 3 : Binary Type , 4: DataTime Type , 5: Boolean Type )</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteNonQuery_Proc(System.String,System.String[],System.Object[],System.Int32[],System.Boolean@,System.String@)">
+            <summary>
+            Proc > INSERT, UPDATE, DELETE => RETURN Success Count
+            </summary>
+            <param name="ProcedureName">DB ProcedureName</param>
+            <param name="ParametersName">각 Parameters Name</param>
+            <param name="ParametersValue">각 Parameters Value</param>
+            <param name="DbTypes">각 Parameters DBType(1 : String Type , 2 : Int Type , 3 : Binary Type , 4: DataTime Type , 5: Boolean Type )</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteNonQueryOutput_Proc(System.String,System.String[],System.Object[],System.Int32[],System.Boolean@,System.String@,System.Object@)">
+            <summary>
+            Proc > INSERT, UPDATE, DELETE => RETURN Success Count
+            </summary>
+            <param name="ProcedureName">DB ProcedureName</param>
+            <param name="ParametersName">각 Parameters Name</param>
+            <param name="ParametersValue">각 Parameters Value</param>
+            <param name="DbTypes">각 Parameters DBType(1 : String Type , 2 : Int Type , 3 : Binary Type , 4: DataTime Type , 5: Boolean Type , 9 : Output Parameter) )</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <param name="oOutValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteNonQuery_Query_TX(System.String,System.Boolean@,System.String@)">
+            <summary>
+            QueryString = INSERT, UPDATE, DELETE Query => RETURN Success Count
+            </summary>
+            <param name="sQeury">QueryString</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteDataSet_Query_TX(System.String,System.Boolean@,System.String@)">
+            <summary>
+            QueryString = SELECT, INSERT, UPDATE, DELETE Query
+            </summary>
+            <param name="sQeury">QueryString</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.Get_ExecuteDataSet_Query_TX_Compress(System.String,System.Boolean@,System.String@)">
+            <summary>
+            QueryString = SELECT, INSERT, UPDATE, DELETE Query
+            </summary>
+            <param name="sQeury">QueryString</param>
+            <param name="isErr">True : 에러 , False : 에러아님</param>
+            <param name="sErrMsg">에러메세지</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.LoginLogAppend(System.String,System.String,System.String)">
+            <summary>
+            로그인 이력 저장
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.LoginLogAppendDB(System.String,System.String,System.String,System.String)">
+            <summary>
+            로그인 이력 저장 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.MenuAccessLogAppend(System.String,System.String,System.String,System.String)">
+            <summary>
+            메뉴 접근 로그
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.MenuAccessLogAppendDB(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            메뉴 접근 로그 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FunctionAccessLogAppend(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            기능 접근 로그
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="functionLog">기능 로그</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.FunctionAccessLogAppendDB(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            기능 접근 로그 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.AuthChangeLogAppend(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            권한 변경 로그
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="authTargetUserId">권한 부여자 식별자</param>
+            <param name="authMenuId">권한 메뉴 ID</param>
+            <param name="authItemId">권한 항목 ID</param>
+            <param name="authOperCode">권한 연산자 코드(부여 : I, 변경 : U, 회수 : D)</param>
+            <param name="authOperLog">특이 로그</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.AuthChangeLogAppendDB(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            권한 변경 로그 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="permissionTargetUserId">권한 부여자 사번</param>
+            <param name="menuId">권한 메뉴 ID</param>
+            <param name="menuAuthId">권한 항목 ID</param>
+            <param name="crudCode">권한 연산자 코드(부여 : C, 변경 : U, 회수 : D)</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.IndiInfoAccessAppend(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            개인정보 접근 로그
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="crudCode">CRUD Code</param>
+            <param name="accessQuery">조회 쿼리</param>
+            <param name="accessParam">조회 파라미터</param>
+            <param name="accessRowCount">조회 건수</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.IndiInfoAccessAppendDB(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            개인정보 접근 로그 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="query">쿼리</param>
+            <param name="param">파라미터</param>
+            <param name="crud">CRUD</param>
+            <param name="rowCount">조회 건수</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IWcfCommonNew.IndiInfoDownLoadAppendDB(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            개인정보 다운로드 로그 (DB)
+            </summary>
+            <param name="realUserId">실 사용자 식별값</param>
+            <param name="connUserId">접속 사용자 식별값</param>
+            <param name="systemId">시스템</param>
+            <param name="menuId">메뉴 ID</param>
+            <param name="functionId">기능 ID</param>
+            <param name="filePath">쿼리</param>
+            <param name="rowCount">다운로드 행수</param>
+            <param name="downloadRemark">다운로드 사유</param>
+            <param name="remark">메모</param>
+            <returns>실행 결과</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ProcedureInfo">
+            <summary>
+            프로시저 정보를 셋팅합니다.(프로시저명, 파라미터)
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.#ctor">
+            <summary>
+            기본 생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.#ctor(System.String)">
+            <summary>
+            기본 생성자
+            </summary>
+            <param name="procedureName">프로시저명</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.ProcedureName">
+            <summary>
+            프로시저명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.ParamList">
+            <summary>
+            파라미터
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.GetParam(System.String)">
+            <summary>
+            해당 파라미터이름에 해당하는 파라미터를 리턴함
+            </summary>
+            <param name="paramName">파라미터 이름</param>
+            <returns>파라미터</returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.GetParamName">
+            <summary>
+            파라미터 이름 리스트 가져오기
+            </summary>
+            <returns>파라미터 이름 리스트</returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.GetParamValue">
+            <summary>
+            파라미터 값 리스트 가져오기
+            </summary>
+            <returns>파라미터 값 리스트</returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.GetParamPType">
+            <summary>
+            파라미터 DB 타입 리스트 가져오기
+            </summary>
+            <returns>파라미터 DB 타입 리스트 </returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.GetParamType">
+            <summary>
+            파라미터 종류 리스트 가져오기(
+            </summary>
+            <returns>파라미터 종류 리스트</returns>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.IsDecryptData">
+            <summary>
+            복호화 컬럼이 있는지 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.DecryptColumns">
+            <summary>
+            복호화 컬럼들
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.DecryptColumnSuffix">
+            <summary>
+            복호화 컬럼 접미사
+            해당 접미사가 사용된 컬럼은 모두 복호화 함
+            주의!!!! 많이 쓰는 표현은 쓰지 말것.
+            ex)
+              XXXXX_DECRYPT => "_DECRYPT"
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.IsEncryptionData">
+            <summary>
+            암호화 컬럼이 있는지 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.EncryptionColumns">
+            <summary>
+            암호화 컬럼들
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.ProcedureInfo.EncryptionColumnSuffix">
+            <summary>
+            암호화 컬럼 접미사
+            해당 접미사가 사용된 컬럼은 모두 암호화 함
+            주의!!!! 많이 쓰는 표현은 쓰지 말것.
+            ex)
+              XXXXX_ENCRYPTION => "_ENCRYPTION"
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.ParamAdd(System.String,System.Object,System.Data.DbType,Cesco.FW.Global.DBAdapter.Param.ParameterType)">
+            <summary>
+            파라미터 추가(타입추가정의)
+            </summary>
+            <param name="paramName">파라미터이름</param>
+            <param name="paramValue">파라미터값</param>
+            <param name="paramDbType">파라미터 DB 타입</param>
+            <param name="paramType">파라미터 종류</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.ParamAdd(System.String,System.Object,System.Data.DbType)">
+            <summary>
+            파라미터 추가(타입추가정의)
+            </summary>
+            <param name="paramName">파라미터이름</param>
+            <param name="paramValue">파라미터값</param>
+            <param name="paramDbType">파라미터 DB 타입</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.ParamAdd(System.String,System.Object)">
+            <summary>
+            파라미터 추가(String타입만)
+            </summary>
+            <param name="paramName">파라미터이름</param>
+            <param name="paramValue">파라미터값</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ProcedureInfo.ParamAdds(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            파라미터 여러개 추가(일반 String타입만)
+            </summary>
+            <param name="parameters">파라미터 그룹</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.DBAdapterFunc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterFunc.DecompressDataSet(System.Byte[])">
+            <summary>
+            데이터 압축
+            </summary>
+            <param name="bytDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapterFunc.ReadFullStream(System.IO.Stream)">
+            <summary>
+            압축된 데이터 셋을 메모리에 압축을 풀어준다.
+            </summary>
+            <param name="stream">Stream Data</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.DBAdapters">
+            <summary>
+            DBAdapters(단일 프로시저 및 쿼리 처리용)
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.#ctor">
+            <summary>
+            DBAdapters 생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.#ctor(System.String,System.Reflection.MethodBase)">
+            <summary>
+            LocalInfo 병합
+            </summary>
+            <param name="userId"></param>
+            <param name="methodBase"></param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapters.BindingConfig">
+            <summary>
+            바인딩 관련 변수 입니다.(상세하게 바인딩에 대해서 설정하시려면 이 옵션의 값을 변경하세요.)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapters.Procedure">
+            <summary>
+            프로시저
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapters.Query">
+            <summary>
+            쿼리
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.DBAdapters.LocalInfo">
+            <summary>
+            사용자 정보
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.Extracting(System.String)">
+            <summary>
+            압축해제
+            </summary>
+            <param name="compressString">압축된 String</param>
+            <returns>Ds</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.GetQueryString">
+            <summary>
+            쿼리문 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ThrowWcfException(System.String)">
+            <summary>
+            WCF 에러 처리
+            </summary>
+            <param name="errorMsg">에러메시지</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ThrowWcfException(System.Exception)">
+            <summary>
+            Wcf Fault Error 처리
+            </summary>
+            <param name="faultException"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSetCompress">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리) - 트랜잭션 처리 되지 않음</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSetCompress(System.Boolean)">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSet">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리) - 트랜잭션 처리 되지 않음</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSet(System.Boolean)">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToNonQuery">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함) - 트랜잭션 처리 되지 않음</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToNonQuery(System.Boolean)">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToScalar">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴) - 트랜잭션 처리 되지 않음</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToScalar(System.Boolean)">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToDataSetCompress">
+            <summary>
+            <para>쿼리문 처리(압축하여 처리) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToDataSetCompress(System.Boolean)">
+            <summary>
+            <para>쿼리문 처리(압축하여 처리) : 쿼리문</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToDataSet">
+            <summary>
+            <para>쿼리문 처리 : 데이터셋 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToDataSet(System.Boolean)">
+            <summary>
+            <para>쿼리문 처리 : 데이터셋</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToNonQuery">
+            <summary>
+            <para>쿼리문 처리(영향받은 행의 수를 리턴함) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToNonQuery(System.Boolean)">
+            <summary>
+            <para>쿼리문 처리(영향받은 행의 수를 리턴함) : 쿼리문</para>>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToScalar">
+            <summary>
+            <para>쿼리문 처리(첫행 첫열 결과값 리턴) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QueryToScalar(System.Boolean)">
+            <summary>
+            <para>쿼리문 처리(첫행 첫열 결과값 리턴) : 쿼리문</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <param name="isTransaction">트랜잭션 사용여부</param>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ExecToDataSetComp">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSet 를 이용해주세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ExecToDataSet">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToDataSet 를 이용해주세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ExecToNonQuery">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToNonQuery 를 이용해주세요.</para>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.ExecToScalar">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.ProcedureToScalar 를 이용해주세요.</para>
+            <para></para>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QExecToDataSetComp">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.QueryToDataSetCompress 를 이용해주세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QExecToDataSet">
+            <summary>
+            <para>단일 프로시저 처리 : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QExecToNonQuery">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.QueryToNonQuery 를 이용해주세요.</para>>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.DBAdapters.QExecToScalar">
+            <summary>
+            <para>해당 메서드는 더이상 사용되지 않습니다. Cesco.FW.Global.DBAdapter.DBAdapters.QueryToScalar 를 이용해주세요.</para>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.CescoDBException">
+            <summary>
+            세스코 오류
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBException.#ctor">
+            <summary>
+            CescoDBException
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBException.#ctor(System.String)">
+            <summary>
+            CescoDBException
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBException.#ctor(System.String,System.Exception)">
+            <summary>
+            CescoDBException
+            </summary>
+            <param name="message">메시지</param>
+            <param name="inner">Inner Exception</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            CescoDBException
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.CescoDBException.HelpLink">
+            <summary>
+            HelpLink
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.WcfException">
+            <summary>
+            Wcf 오류
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.WcfException.WcfConfig">
+            <summary>
+            WCF 설정값
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfException.#ctor">
+            <summary>
+            WcfException
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfException.#ctor(System.String)">
+            <summary>
+            WcfException
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfException.#ctor(System.String,System.Exception)">
+            <summary>
+            WcfException
+            </summary>
+            <param name="message">메시지</param>
+            <param name="inner">Inner Exception</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfException.#ctor(System.String,System.Exception,Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            WcfException
+            </summary>
+            <param name="message">메시지</param>
+            <param name="inner">Inner Exception</param>
+            <param name="wcfConfig">설정값</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            WcfException
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.CescoDBAdapterException">
+            <summary>
+            프로시저 및 쿼리 처리 오류
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBAdapterException.#ctor">
+            <summary>
+            CescoDBAdapterException
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBAdapterException.#ctor(System.String)">
+            <summary>
+            CescoDBAdapterException
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBAdapterException.#ctor(System.String,System.Exception)">
+            <summary>
+            CescoDBAdapterException
+            </summary>
+            <param name="message">메시지</param>
+            <param name="inner">Inner Exception</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.CescoDBAdapterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            CescoDBAdapterException
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.IDBAdapters">
+            <summary>
+            DBAdapters Intertface
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ProcedureToDataSetCompress">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ProcedureToDataSet">
+            <summary>
+            <para>단일 프로시저 처리</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ProcedureToNonQuery">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ProcedureToScalar">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴)</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QueryToDataSetCompress">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QueryToDataSet">
+            <summary>
+            <para>단일 프로시저 처리 : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QueryToNonQuery">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QueryToScalar">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <exception cref="T:Cesco.FW.Global.DBAdapter.WcfException">WcfException</exception>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ExecToDataSetComp">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리)</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ExecToDataSet">
+            <summary>
+            <para>단일 프로시저 처리</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ExecToNonQuery">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함)</para>>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.ExecToScalar">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴)</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            <para></para>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QExecToDataSetComp">
+            <summary>
+            <para>단일 프로시저 처리(압축하여 처리) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QExecToDataSet">
+            <summary>
+            <para>단일 프로시저 처리 : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과값(데이터셋)</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QExecToNonQuery">
+            <summary>
+            <para>단일 프로시저 처리(영향받은 행의 수를 리턴함) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>영향 받는 행의 수입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.IDBAdapters.QExecToScalar">
+            <summary>
+            <para>단일 프로시저 처리(첫행 첫열 결과값 리턴) : 쿼리문 : 해당 쿼리문은 Transaction 처리됨</para>
+            <para>사용이 중지된 메서드 입니다. 사용하지마세요.</para>
+            </summary>
+            <returns>결과 집합의 첫 행의 첫 열 또는 결과 집합이 비어있을 경우 null 참조입니다.</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Param">
+            <summary>
+            DB 파라미터 구조체
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor">
+            <summary>
+            파라미터 생성자(이름 빈값, 값 빈값, DbType : String)
+            해당 생성자로 생성시 이름과 값을 입력해 주세요.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String)">
+            <summary>
+            파라미터 생성자(값 빈값, DbType : String)
+            </summary>
+            <param name="paramName">파라미터 명</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String,System.Object)">
+            <summary>
+            파라미터 생성자(DbType : String)
+            Varchar, char 형식일 경우에 사용하십시요.
+            </summary>
+            <param name="paramName">파라미터 명</param>
+            <param name="paramValue">파라미터 값</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String,System.Object,System.Data.DbType)">
+            <summary>
+            파라미터 생성자
+            </summary>
+            <param name="paramName">파라미터 명</param>
+            <param name="paramValue">파라미터 값</param>
+            <param name="paramDbType">파라미터 DB Type</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String,System.Object,System.Data.SqlDbType)">
+            <summary>
+            파라미터 생성자
+            </summary>
+            <param name="paramName"></param>
+            <param name="paramValue"></param>
+            <param name="paramSqlDbType">파라미터 DB Type(SqlDbType)</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String,System.Object,System.Data.DbType,Cesco.FW.Global.DBAdapter.Param.ParameterType)">
+            <summary>
+            파라미터 생성자
+            </summary>
+            <param name="paramName">파라미터 명</param>
+            <param name="paramValue">파라미터 값</param>
+            <param name="paramDbType">파라미터 DB Type</param>
+            <param name="paramType">파라미터 종류</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Param.#ctor(System.String,System.Object,System.Data.SqlDbType,Cesco.FW.Global.DBAdapter.Param.ParameterType)">
+            <summary>
+            파라미터 생성자
+            </summary>
+            <param name="paramName">파라미터 명</param>
+            <param name="paramValue">파라미터 값</param>
+            <param name="paramSqlDbType">파라미터 DB Type</param>
+            <param name="paramType">파라미터 종류</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Param.ParameterType">
+            <summary>
+            파라미터 타입
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.Param.ParameterType.Default">
+            <summary>
+            일반적인 파라미터
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.Param.ParameterType.Output">
+            <summary>
+            Output 파라미터
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.Param.ParameterType.Parents">
+            <summary>
+            부모 파라미터(자식에게 Output 값을 전달할 Key 값)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.DBAdapter.Param.ParameterType.Child">
+            <summary>
+            자식 파라미터(부모의 Output 값을 상속받는 파라미터)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamName">
+            <summary>
+            파라미터 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamValue">
+            <summary>
+            파라미터 값
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamDbType">
+            <summary>
+            파라미터 DB Type
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamSqlDbType">
+            <summary>
+            SQLTYPE 파라미터 DB TYPE
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamType">
+            <summary>
+            파라미터 종류
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.ParamOutputValue">
+            <summary>
+            파라미터 아웃풋 벨류
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.IsTableVariable">
+            <summary>
+            테이블 변수 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.Param.TableVariableValue">
+            <summary>
+            테이블 변수 값
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.QueryInfo">
+            <summary>
+            쿼리문 종류
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.QueryInfo.#ctor">
+            <summary>
+            기본 생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.QueryInfo.#ctor(System.Text.StringBuilder)">
+            <summary>
+            기본 생성자
+            </summary>
+            <param name="queryString">쿼리문</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.QueryInfo.#ctor(System.String)">
+            <summary>
+            기본 생성자
+            </summary>
+            <param name="queryString">쿼리문</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.QueryInfo.QueryString">
+            <summary>
+            쿼리문
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.QueryInfo.GetQueryString">
+            <summary>
+            쿼리문 가져오기
+            </summary>
+            <returns>쿼리문</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.ReferencePreservingDataContractFormatAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ReferencePreservingDataContractFormatAttribute.AddBindingParameters(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            AddBindingParameters
+            </summary>
+            <param name="description"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ReferencePreservingDataContractFormatAttribute.ApplyClientBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.ClientOperation)">
+            <summary>
+            ApplyClientBehavior
+            </summary>
+            <param name="description"></param>
+            <param name="proxy"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ReferencePreservingDataContractFormatAttribute.ApplyDispatchBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.DispatchOperation)">
+            <summary>
+            ApplyDispatchBehavior
+            </summary>
+            <param name="description"></param>
+            <param name="dispatch"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.ReferencePreservingDataContractFormatAttribute.Validate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Validate
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Utils.DebugingTools">
+            <summary>
+            Debug를 돕기 위한 함수
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Utils.DebugingTools.GetExcuteSqlString(System.Collections.Generic.List{Cesco.FW.Global.DBAdapter.ProcedureInfo})">
+            <summary>
+            MSSQL 문으로 변환하여 Return 함
+            </summary>
+            <param name="procInfos">프로시저 정보 묶음</param>
+            <returns>MSSQL 실행문</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Utils.DebugingTools.GetExcuteSqlString(Cesco.FW.Global.DBAdapter.ProcedureInfo)">
+            <summary>
+            MSSQL 문으로 변환하여 Return 함
+            </summary>
+            <param name="procInfo">프로시저 정보</param>
+            <returns>MSSQL 실행문</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Utils.IpAddress">
+            <summary>
+            Ip 정보 클래스
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Utils.IpAddress.GetIPv4">
+            <summary>
+            IPv4 가져오기
+            </summary>
+            <returns>IPv4</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.Utils.MacAddress">
+            <summary>
+            MAC 주소 클래스
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.Utils.MacAddress.GetMACAddress(System.String)">
+            <summary>
+            맥어드레스(물리주소) 가져오기
+            </summary>
+            <returns>MACAddress</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.FaultUtils">
+            <summary>
+            에러 처리용 Utils
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.FaultUtils.FaultToException(Cesco.FW.Global.DBAdapter.WcfCommonNew.SQLHandleFault)">
+            <summary>
+            SQL 에러 처리
+            </summary>
+            <param name="falut">Wcf 에러</param>
+            <returns>SqlException</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.FaultUtils.FaultToException(Cesco.FW.Global.DBAdapter.WcfCommonNew.NotHandleFault)">
+            <summary>
+            그외 모든 에러 처리
+            </summary>
+            <param name="falut">Wcf 에러</param>
+            <returns>오류</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.FaultUtils.FaultToException(Cesco.FW.Global.DBAdapter.WcfCommonNew.EncDecFault)">
+            <summary>
+            암복화화 관련 오류
+            </summary>
+            <param name="falut">Wcf 에러</param>
+            <returns>오류</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.EncDecException">
+            <summary>
+            암복화화 Exception
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.EncDecException.#ctor(System.String)">
+            <summary>
+            생성자
+            </summary>
+            <param name="message">메시지</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.NotHandleException">
+            <summary>
+            정의되지 않은 WCF Exception
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.NotHandleException.#ctor(System.String,System.String)">
+            <summary>
+            생성자
+            </summary>
+            <param name="message">메시지</param>
+            <param name="stackTrace">StackTrace</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.NotHandleException.StackTrace">
+            <summary>
+            오류를 발생시키는 애플리케이션 또는 개체의 이름을 가져오거나 설정합니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.NotHandleException.ExceptionName">
+            <summary>
+            오류 명칭 Type.FullName
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.NotHandleException.Source">
+            <summary>
+            오류가 발생한 위치를 확인하는 데 사용할 수 있는 스택 추적을 포함합니다. 
+            디버깅 정보를 사용할 수 있는 경우 스택 추적에는 소스 파일 이름과 프로그램 줄 번호가 포함됩니다.
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.SqlHandleException">
+            <summary>
+            SQL 관련 Exception
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.SqlHandleException.#ctor(System.String,System.String)">
+            <summary>
+            생성자
+            </summary>
+            <param name="message">메시지</param>
+            <param name="stackTrace">StackTrace</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.LineNumber">
+            <summary>
+            TRANSACT-SQL 명령 일괄 처리 또는 오류를 생성 하는 저장된 프로시저 내에서 줄 번호입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.Number">
+            <summary>
+            오류의 형식을 식별하는 번호입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.Procedure">
+            <summary>
+            저장 프로시저 또는 RPC의 이름입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.StackTrace">
+            <summary>
+            오류가 발생한 위치를 확인하는 데 사용할 수 있는 스택 추적을 포함합니다. 
+            디버깅 정보를 사용할 수 있는 경우 스택 추적에는 소스 파일 이름과 프로그램 줄 번호가 포함됩니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.Server">
+            <summary>
+            SQL Server의 인스턴스를 실행 하는 컴퓨터의 이름입니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.Class">
+            <summary>
+            SQL Server에 대 한.NET Framework 데이터 공급자 로부터 반환 된 오류의 심각도 수준을 가져옵니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.SqlHandleException.State">
+            <summary>
+            오류, 경고 또는 "데이터 없음" 메시지를 나타내는 SQL Server에서 숫자 오류 코드를 가져옵니다. 이러한 값을 디코딩하는 방법은 데이터베이스 엔진 이벤트 및 오류를 참조하세요.
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1">
+            <summary>
+            WCF 접속용(App.config 사용 안함)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1.#ctor(Cesco.FW.Global.DBAdapter.ConfigurationDetail)">
+            <summary>
+            생성자
+            </summary>
+            <param name="config">접속 옵션</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1.Channel">
+            <summary>
+            T Channel
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1.SetDataContractSerializerBehavior(System.ServiceModel.Description.ContractDescription)">
+            <summary>
+            Add the client side behavior programmatically to all created channels.
+            </summary>
+            <param name="contractDescription"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1.Dispose">
+            <summary>
+            종료
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.WcfServiceHelper`1.Dispose(System.Boolean)">
+            <summary>
+            종료
+            </summary>
+            <param name="disposing">종료여부</param>
+        </member>
+        <member name="T:Cesco.FW.Global.DBAdapter.LocalInfo">
+            <summary>
+            DB 파라미터 구조체
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor">
+            <summary>
+            파라미터 생성자(이름 빈값, 값 빈값, DbType : String)
+            해당 생성자로 생성시 이름과 값을 입력해 주세요.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.Reflection.MethodBase)">
+            <summary>
+            생성자(사번, 메소드 베이스(System.Reflection.MethodBase.GetCurrentMethod())
+            </summary>
+            <param name="userId">사번</param>
+            <param name="methodBase">System.Reflection.MethodBase.GetCurrentMethod() 로 셋팅하세요</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.String,System.Reflection.MethodBase,System.String,System.String,System.String,System.String)">
+            <summary>
+            생성자(사번, 메소드 베이스(System.Reflection.MethodBase.GetCurrentMethod(), 개인정보)
+            </summary>
+            <param name="userId">사번</param>
+            <param name="realUserId">실제 사용자 아이디(Debug용)</param>
+            <param name="methodBase">System.Reflection.MethodBase.GetCurrentMethod() 로 셋팅하세요</param>
+            <param name="piCRUDCode">CRUD (해당하는 값을 모두 쓰면 됩니다. ex 읽기만 "R", 생성및업데이트및삭제 "CUD" </param>
+            <param name="piSystemId">시스템 ID</param>
+            <param name="piMenuId">메뉴 ID</param>
+            <param name="piFunctionId">기능 ID</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.String,System.Reflection.MethodBase,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            생성자(사번, 메소드 베이스(System.Reflection.MethodBase.GetCurrentMethod(), 개인정보)
+            </summary>
+            <param name="userId">사번</param>
+            <param name="realUserId">실제 사용자 아이디(Debug용)</param>
+            <param name="methodBase">System.Reflection.MethodBase.GetCurrentMethod() 로 셋팅하세요</param>
+            <param name="piCRUDCode">CRUD (해당하는 값을 모두 쓰면 됩니다. ex 읽기만 "R", 생성및업데이트및삭제 "CUD" </param>
+            <param name="piSystemId">시스템 ID</param>
+            <param name="piMenuId">메뉴 ID</param>
+            <param name="piFunctionId">기능 ID</param>
+            <param name="piRemark">메모</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.String)">
+            <summary>
+            생성자(사번, 화면이름)
+            </summary>
+            <param name="userID">사용자아이디</param>
+            <param name="userScrNm">실제 사용자 아이디(Debug용)</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            생성자 전체
+            </summary>
+            <param name="userID">사용자아이디</param>
+            <param name="realUserId">실제 사용자 아이디(Debug용)</param>
+            <param name="userScrNm">화면이름</param>
+            <param name="isPIAccess">개인정보 여부</param>
+            <param name="piCRUDCode">CRUD (해당하는 값을 모두 쓰면 됩니다. ex 읽기만 "R", 생성및업데이트및삭제 "CUD" </param>
+            <param name="piSystemId">시스템 ID</param>
+            <param name="piMenuId">메뉴 ID</param>
+            <param name="piFunctionId">기능 ID</param>
+        </member>
+        <member name="M:Cesco.FW.Global.DBAdapter.LocalInfo.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            생성자 전체
+            </summary>
+            <param name="userID">사용자아이디</param>
+            <param name="realUserId">실제 사용자 아이디(Debug용)</param>
+            <param name="userScrNm">화면이름</param>
+            <param name="isPIAccess">개인정보 여부</param>
+            <param name="piCRUDCode">CRUD (해당하는 값을 모두 쓰면 됩니다. ex 읽기만 "R", 생성및업데이트및삭제 "CUD" </param>
+            <param name="piSystemId">시스템 ID</param>
+            <param name="piMenuId">메뉴 ID</param>
+            <param name="piFunctionId">기능 ID</param>
+            <param name="piRemark">메모</param>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.UserID">
+            <summary>
+            사번 (사용자 인식번호)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.RealUserID">
+            <summary>
+            사번 (실제 사용자 ID, Debug 목적 등)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.UserIP">
+            <summary>
+            사용자 IP
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.UserScrNm">
+            <summary>
+            실행화면 구분명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.UserMACAddress">
+            <summary>
+            사용자 맥어드레스
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.IsPIAccess">
+            <summary>
+            개인정보 조회 관련 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.PICRUDCode">
+            <summary>
+            개인정보 : 메뉴 ID
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.PIMenuId">
+            <summary>
+            개인정보 : 메뉴 ID
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.PISystemId">
+            <summary>
+            개인정보 : 시스템 ID
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.PIFunctionId">
+            <summary>
+            개인정보 : 기능 ID
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.DBAdapter.LocalInfo.PIRemark">
+            <summary>
+            개인정보 : 메모
+            </summary>
+        </member>
+    </members>
+</doc>

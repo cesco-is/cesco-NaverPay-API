@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1525
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaverPayAPI", "NaverPayAPI\NaverPayAPI.csproj", "{0B1DA5AE-787C-4C77-A575-27923E455D8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesco.FW.TestForm", "..\..\0_cesco-testform-master\Cesco.FW.TestForm.3.5\Cesco.FW.TestForm.csproj", "{9BA81333-CDE4-40C1-8F9A-00BA3604E8B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B1DA5AE-787C-4C77-A575-27923E455D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1DA5AE-787C-4C77-A575-27923E455D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1DA5AE-787C-4C77-A575-27923E455D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1DA5AE-787C-4C77-A575-27923E455D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA81333-CDE4-40C1-8F9A-00BA3604E8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA81333-CDE4-40C1-8F9A-00BA3604E8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA81333-CDE4-40C1-8F9A-00BA3604E8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA81333-CDE4-40C1-8F9A-00BA3604E8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24285230-06D4-4D2B-A8D5-FC18691049EA}
+	EndGlobalSection
+EndGlobal

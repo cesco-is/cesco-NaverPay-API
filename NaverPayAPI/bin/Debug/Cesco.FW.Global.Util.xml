@@ -1,0 +1,1410 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cesco.FW.Global.Util</name>
+    </assembly>
+    <members>
+        <member name="T:Cesco.FW.Global.Util.AppData.GridDBData">
+            <summary>
+            GridDBData
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AppData.GridDBData.ConnectionDB">
+            <summary>
+            ConnectionDB
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.AppData.GridDBData.GetGridSettingData(System.String,System.String,System.String)">
+            <summary>
+            GetGridSettingData
+            </summary>
+            <param name="designNo">designNo</param>
+            <param name="searchYMD">searchYMD</param>
+            <param name="userId">userId</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.CESException.CescoExceptionBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.CESException.CescoExceptionBase.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.CESException.CescoExceptionBase.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.CESException.CescoExceptionBase.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESException.CescoExceptionBase.STA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.CESException.LoadAssemblyException">
+            <summary>
+            Assembly Load 에서 나타나는 에러
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.CESException.LoadAssemblyException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.CESNETUserInfo">
+            <summary>
+            CESNET 에서 넘어온 사용자 권한 정보 구조체
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.UserID">
+            <summary>
+            사번
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.DeptCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.InsertAuth">
+            <summary>
+            입력권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.UpdateAuth">
+            <summary>
+            수정권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.DeleteAuth">
+            <summary>
+            삭제권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.SearchAuth">
+            <summary>
+            조회권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.PrintAuth">
+            <summary>
+            출력권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.ExcelAuth">
+            <summary>
+            엑셀 변환 권한 (Y/N)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.CESNETUserInfo.DataAuth">
+            <summary>
+            Data 권한 (Y/N)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Colors.IndexColors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexBTypeBC1">
+            <summary>
+            지표 새상 B BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexBTypeBC2">
+            <summary>
+            지표 새상 B BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexBTypeFC">
+            <summary>
+            지표 새상 B ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexGTypeBC1">
+            <summary>
+            지표 새상 G BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexGTypeBC2">
+            <summary>
+            지표 새상 G BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexGTypeFC">
+            <summary>
+            지표 새상 G ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexYTypeBC1">
+            <summary>
+            지표 새상 Y BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexYTypeBC2">
+            <summary>
+            지표 새상 Y BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexYTypeFC">
+            <summary>
+            지표 새상 Y ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexRTypeBC1">
+            <summary>
+            지표 새상 R BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexRTypeBC2">
+            <summary>
+            지표 새상 R BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.IndexRTypeFC">
+            <summary>
+            지표 새상 R ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.SubTotalBC1">
+            <summary>
+            소계 BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.SubTotalBC2">
+            <summary>
+            소계 BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.SubTotalFC">
+            <summary>
+            소계 ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.TotalBC1">
+            <summary>
+            총계 BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.TotalBC2">
+            <summary>
+            총계 BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Colors.IndexColors.TotalFC">
+            <summary>
+            총계 ForeColor
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.CescoUserInfo">
+            <summary>
+            사원정보 열람
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.Common.CescoUserInfo.ConnectionDB">
+            <summary>
+            접속 DB 정보
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.ID">
+            <summary>
+            사번
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.KoreaName">
+            <summary>
+            한글성명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.PartCode">
+            <summary>
+            소속파트
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.PartName">
+            <summary>
+            소속파트명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.DepartCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.DeparttName">
+            <summary>
+            부서명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.HeadOfficeCode">
+            <summary>
+            소속본부코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.HeadOfficeName">
+            <summary>
+            소속본부명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.OccupationalGroupCode">
+            <summary>
+            직군코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.OccupationalGroupName">
+            <summary>
+            직군명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.PostionCode">
+            <summary>
+            직위코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.PostionName">
+            <summary>
+            직위명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.ResponOfOfficeCode">
+            <summary>
+            직책코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.ResponOfOfficeName">
+            <summary>
+            직책명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.IsRetirement">
+            <summary>
+            재직여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.ChargeOfSectorsCode">
+            <summary>
+            담당업종코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.ChargeOfSectorsName">
+            <summary>
+            담당업종명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.LicenseCode">
+            <summary>
+            라이센스코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.LicenseName">
+            <summary>
+            라이센스명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.StaffPicture">
+            <summary>
+            사원이미지
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.TeamCode">
+            <summary>
+            팀 코드(본사전용)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.TeamName">
+            <summary>
+            팀 네임(본사전용)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CescoUserInfo.UserGrade">
+            <summary>
+            권한 리턴
+            
+            0 : 실장 / 임원
+            1 : 본사
+            2 : 고객센터 상담직
+            3 : 본부
+            4 : 지사관리(지사장, 팀장, SA, 영업직)
+            5 : 지사파트장
+            99 : SC 및 지정 안된 사용자
+            
+            CESINSA.dbo.TB_USERGRAD 테이블 확인해 볼것!
+            
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CescoUserInfo.#ctor(System.String)">
+            <summary>
+            사원정보조회
+            </summary>
+            <param name="userId">사원코드</param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CescoUserInfo.#ctor(System.String,System.String)">
+            <summary>
+            사원정보조회
+            </summary>
+            <param name="userId">사원코드</param>
+            <param name="stndYMD">기준일자</param>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.CESExceptionFunc">
+            <summary>
+            Exception처리
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CESExceptionFunc.ErrorMessage(System.Exception)">
+            <summary>
+            메세지 리턴
+            </summary>
+            <param name="ex">Exception</param>
+            <returns>정의된 오류 메시지</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo">
+            <summary>
+            CESNET 2.0 권한입니다.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.#ctor">
+            <summary>
+            세스넷 권한
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            세스넷 권한
+            </summary>
+            <param name="userId">사용자 사번</param>
+            <param name="deptCode">사용자 부서코드</param>
+            <param name="insert">등록권한</param>
+            <param name="update">수정권한</param>
+            <param name="delete">삭제권한</param>
+            <param name="search">조회권한</param>
+            <param name="print">출력권한</param>
+            <param name="excel">엑셀권한</param>
+            <param name="data">데이터권한</param>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.UserNo">
+            <summary>
+            사번
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.DepartCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.InsertAuth">
+            <summary>
+            입력 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsInsert">
+            <summary>
+            입력 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.UpdateAuth">
+            <summary>
+            수정 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsUpdate">
+            <summary>
+            수정 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.DeleteAuth">
+            <summary>
+            삭제 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsDelete">
+            <summary>
+            삭제 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.SearchAuth">
+            <summary>
+            조회 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsSearch">
+            <summary>
+            조회 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.PrintAuth">
+            <summary>
+            프린트 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsPrint">
+            <summary>
+            프린트 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.ExcelAuth">
+            <summary>
+            엑셀 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsExcel">
+            <summary>
+            엑셀 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.DataAuth">
+            <summary>
+            데이터 권한
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.IsData">
+            <summary>
+            데이터 권한 여부
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CesnetUserAuthInfo.UserInfo">
+            <summary>
+            사용자 정보(읽기 전용)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.ColorSet">
+            <summary>
+            공용 색상 정보
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexBTypeBC1">
+            <summary>
+            지표 새상 B BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexBTypeBC2">
+            <summary>
+            지표 새상 B BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexBTypeFC">
+            <summary>
+            지표 새상 B ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexGTypeBC1">
+            <summary>
+            지표 새상 G BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexGTypeBC2">
+            <summary>
+            지표 새상 G BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexGTypeFC">
+            <summary>
+            지표 새상 G ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexYTypeBC1">
+            <summary>
+            지표 새상 Y BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexYTypeBC2">
+            <summary>
+            지표 새상 Y BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexYTypeFC">
+            <summary>
+            지표 새상 Y ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexRTypeBC1">
+            <summary>
+            지표 새상 R BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexRTypeBC2">
+            <summary>
+            지표 새상 R BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.IndexRTypeFC">
+            <summary>
+            지표 새상 R ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.SubTotalBC1">
+            <summary>
+            소계 BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.SubTotalBC2">
+            <summary>
+            소계 BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.SubTotalFC">
+            <summary>
+            소계 ForeColor
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.TotalBC1">
+            <summary>
+            총계 BackColor1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.TotalBC2">
+            <summary>
+            총계 BackColor2
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.ColorSet.TotalFC">
+            <summary>
+            총계 ForeColor
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.CustomerInfo">
+            <summary>
+            고객정보 Class
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.CustomerInfo.SetCustInfo(System.Data.DataRow)">
+            <summary>
+            컬럼명은 CESCOEIS.dbo.USP_CM_SEL_CustomerList 프로시저 참조
+            </summary>
+            <param name="custInfo"></param>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustCode">
+            <summary>
+            고객코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustName">
+            <summary>
+            고객명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustName2">
+            <summary>
+            고객명2(예명)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.ParentCustCode">
+            <summary>
+            본사고객코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.ParentCustName">
+            <summary>
+            본사고객명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustGubnCode">
+            <summary>
+            고객구분 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustGubnName">
+            <summary>
+            고객구분 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeCode">
+            <summary>
+            업종구분 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeName">
+            <summary>
+            업종구분 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeLargeCode">
+            <summary>
+            유횽대 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeLargeName">
+            <summary>
+            유형대 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeMiddleCode">
+            <summary>
+            유형중 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.CustTypeMiddleName">
+            <summary>
+            유형중 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.MngCustName">
+            <summary>
+            대표자 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.PostCode">
+            <summary>
+            우편번호
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.Address1">
+            <summary>
+            주소1
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.Address2">
+            <summary>
+            주소2(상세)
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.MngDeptCode">
+            <summary>
+            담당부서 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.MngDeptName">
+            <summary>
+            담당부서 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.MngPartCode">
+            <summary>
+            담당파트 코드
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.MngPartName">
+            <summary>
+            담당파트 명
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.Common.CustomerInfo.No">
+            <summary>
+            고객식별 번호(사업자번호 등)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.DBCodeTables">
+            <summary>
+            DB Code Table 가져오기
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.Common.DBCodeTables.ConnectionDB">
+            <summary>
+            접속 DB
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.TB_PHONENUMLIST(System.String,System.String)">
+            <summary>
+            폰넘버
+            </summary>
+            <param name="phoneNumberClass">폰클레스</param>
+            <param name="phoneFirstNumber">폰넘버</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.CESCOMIS__TB_CODE(System.String)">
+            <summary>
+            CESCOMIS.dbo.TB_CODE 테이블 조회
+            </summary>
+            <param name="className">구분자(Class)</param>
+            <returns>CodeField : CODE, NameField : NAME</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.CUSTTYPES(System.String)">
+            <summary>
+            CESCOMIS.dbo.TB_업종구분 테이블 조회
+            </summary>
+            <param name="className">구분자(Class)</param>
+            <returns>CodeField : CODE, NameField : NAME</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.MKTCGERL(System.String,System.String)">
+            <summary>
+            계약대상 목록 정보 가져오기
+            </summary>
+            <param name="userNo">사번</param>
+            <param name="gubnString">사번</param>
+            <returns>ContractTarget List</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.YESNO_Boolean">
+            <summary>
+            YESNO 테이블 리턴(Boolean), 예, 아니요
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.YESNO_Boolean(System.String,System.String)">
+            <summary>
+            YESNO 테이블 리턴(Boolean), 예, 아니요 값 사용자 정의
+            </summary>
+            <param name="yesName">Yes 이름</param>
+            <param name="noName">No 이름</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.YESNO_String">
+            <summary>
+            YESNO 테이블 리턴(string), 예("Y"), 아니요("N")
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DBCodeTables.YESNO_String(System.String,System.String,System.String,System.String)">
+            <summary>
+            YESNO 테이블 리턴(string), 예("Y"), 아니요("N") 값 사용자정의
+            </summary>
+            <param name="yesName">Yes 이름</param>
+            <param name="noName">No 이름</param>
+            <param name="yesCode">Yes 코드값</param>
+            <param name="noCode">No 코드값</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.DynamicCtrl">
+            <summary>
+            동적 컨트롤 클래스
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.Common.DynamicCtrl.ConnectionDB">
+            <summary>
+            접속 DB 정보
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.GetCtlCnt(System.String,System.String)">
+            <summary>
+            컨트롤 가져오기
+            </summary>
+            <param name="NameSpace">네임스페이스</param>
+            <param name="ClsNm">클래스이름</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.SetCtlCnt(System.String,System.String,System.String[],System.String[])">
+            <summary>
+            컨트롤 셋팅
+            </summary>
+            <param name="NameSpace">네임스페이스</param>
+            <param name="ClsNm">클래스이름</param>
+            <param name="CtlNm">컨트롤이름</param>
+            <param name="CtlType">컨트롤 타입</param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.GetAuthYN(System.String,System.String,System.String)">
+            <summary>
+            권한 확인
+            </summary>
+            <param name="NameSpace">네임스페이스</param>
+            <param name="ClsNm">클래스이름</param>
+            <param name="strUserId">접속자사번</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.GetValue(System.Object,System.String)">
+            <summary>
+            값 가져오기(접근가능한 속성만 접근함)
+            </summary>
+            <param name="control">컨트롤</param>
+            <param name="propName">속성이름</param>
+            <returns>반환값</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.SetValue(System.Object,System.String,System.Object)">
+            <summary>
+            값 넣기(접근가능한 속성만 접근함)
+            </summary>
+            <param name="control">컨트롤</param>
+            <param name="propName">속성이름</param>
+            <param name="value">값</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.DynamicCtrl.Method(System.Object,System.String,System.Object[])">
+            <summary>
+            컨트롤 메서드 실행(접근가능한 메서드만 실행됨)
+            </summary>
+            <param name="control">컨트롤</param>
+            <param name="methodName">메서드 이름</param>
+            <param name="parameters">파라미터(순서대로)집합</param>
+            <returns>실행여부</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.LoadAssembly">
+            <summary>
+            Load Assembly (Dll File Load)
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.LoadAssembly.Load(System.Reflection.Assembly,System.String,System.String,System.Object[])">
+            <summary>
+            <para>Assembly를 로드하여 조회할 Class를 Object 형식을 반환함</para>
+            <para>(자신의 dll과 같은 위치에 있을경우)</para>
+            </summary>
+            <param name="executingAssembly">자기 자신dll Assembly(ex :System.Reflection.Assembly.GetExecutingAssembly())</param>
+            <param name="fileName">조회할 파일 dll(ex: MainFrame.dll)</param>
+            <param name="loadClassName">로드할 클레스 FullName(ex : Cesco.FW.Global.XtraUserControl1)</param>
+            <param name="args">생성자 값입니다.(만약 생성자가 기본생성자 일경우 빈 array를 넘기거나 null을 넘기세요.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.LoadAssembly.Load(System.String,System.String,System.Object[])">
+            <summary>
+            <para>Assembly를 로드하여 조회할 Class를 Object 형식을 반환함</para>
+            <para>(자신의 dll과 다른 위치에 있을경우)</para>
+            </summary>
+            <param name="fileFullName">조회할 파일 dll의 Funn Path(ex : D:\\00_C#\\00_WORKSPACE\\01_FRAMEWORK\\MainFrame.dll)</param>
+            <param name="loadClassName">로드할 클레스 FullName(ex : Cesco.FW.Global.XtraUserControl1)</param>
+            <param name="args">생성자 값입니다.(만약 생성자가 기본생성자 일경우 빈 array를 넘기거나 null을 넘기세요.)</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.Organization">
+            <summary>
+            부서정보 클래스
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.Common.Organization.ConnectionDB">
+            <summary>
+            접속 DB 정보
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetDepartList(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            부서목록 가져오기
+            </summary>
+            <param name="deptCode">부서코드</param>
+            <param name="type">조회타입</param>
+            <param name="stndYMD">기준일자</param>
+            <param name="curDepartCode">현재부서코드</param>
+            <returns>부서목록</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetDepartList(Cesco.FW.Global.Util.DepartSearchOption)">
+            <summary>
+            부서 조회
+            </summary>
+            <param name="option">옵션</param>
+            <returns>부서목록</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetPartUserList(System.String,System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            파트 사원리스트 가져오기
+            </summary>
+            <param name="deptCode">부서코드</param>
+            <param name="partCode">파트코드</param>
+            <param name="type">조회타입</param>
+            <param name="workedOnly">재직중인 사람만 여부</param>
+            <returns>파트유저리스트</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetPartUserList(Cesco.FW.Global.Util.PartUserSearchOption)">
+            <summary>
+            파트 사원리스트 가져오기
+            </summary>
+            <param name="option">옵션</param>
+            <returns>파트유저리스트</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetUserList(System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            사원 리스트 가져오기
+            </summary>
+            <param name="deptCode"></param>
+            <param name="type"></param>
+            <param name="workedOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.Organization.GetUserList(Cesco.FW.Global.Util.UserSearchOption)">
+            <summary>
+            사원 리스트 가져오기
+            </summary>
+            <param name="option">옵션</param>
+            <returns>사원 리스트</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Common.SimpleFunctions">
+            <summary>
+            기초 공용 함수
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.SimpleFunctions.#ctor">
+            <summary>
+            기초 생성자
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.SimpleFunctions.IN(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            리스트안에 해당 string이 포함되는 경우 true를 리턴함
+            </summary>
+            <param name="lists">리스트</param>
+            <param name="findValue">찾으려는 값</param>
+            <returns>true / false</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Common.SimpleFunctions.IN(System.Collections.Generic.List{System.Object},System.Object)">
+            <summary>
+            리스트안에 해당 string이 포함되는 경우 true를 리턴함
+            </summary>
+            <param name="lists">리스트</param>
+            <param name="findValue">찾으려는 값</param>
+            <returns>true / false</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.UserSearchOption">
+            <summary>
+            사원 조회 옵션
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.ConnUserNo">
+            <summary>
+            접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.RealUserNo">
+            <summary>
+            실 접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.ConnectionDB">
+            <summary>
+            접속 DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.DepartCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.UserType">
+            <summary>
+            유저 타입
+            A001 : 부서 사원
+            B001 : 퇴직자 포함 부서 사원
+            C001 : 전체가 들어간 사원정보 (부서코드를 보내지 않으면 전체 조회함)
+            D001 : 재직자만 사원조회 (부서코드를 보내지 않으면 전체 조회함)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.IsWorkOnly">
+            <summary>
+            재직여부
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.SystemId">
+            <summary>
+            시스템 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.MenuId">
+            <summary>
+            메뉴 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.UserSearchOption.FunctionId">
+            <summary>
+            기능 ID (기능 ID)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.PartUserSearchOption">
+            <summary>
+            파트 사원 조회 옵션
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.ConnUserNo">
+            <summary>
+            접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.RealUserNo">
+            <summary>
+            실 접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.ConnectionDB">
+            <summary>
+            접속 DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.DepartCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.PartCode">
+            <summary>
+            파트코드
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.IsWorkOnly">
+            <summary>
+            재직여부
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.SystemId">
+            <summary>
+            시스템 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.MenuId">
+            <summary>
+            메뉴 ID (개인정보 로그 용)
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.PartUserSearchOption.FunctionId">
+            <summary>
+            기능 ID (기능 ID)
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.DepartSearchOption">
+            <summary>
+            부서 조회 옵션
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.ConnUserNo">
+            <summary>
+            접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.RealUserNo">
+            <summary>
+            실 접속자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.ConnectionDB">
+            <summary>
+            접속 DB
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.DepartCode">
+            <summary>
+            부서코드
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.DepartType">
+            <summary>
+            조회 부서 타입
+            A001 - 전체부서
+            A002 - 전체부서(본부미포함)
+            A003 - 전체부서(본부만)
+            
+            B001 - 본사부서
+            B002 - 본사부서(본부미포함)
+            B003 - 본사부서(본부만)
+            
+            C001 - 지사부서
+            C002 - 지사부서(본부미포함)
+            C003 - 지사부서(본부만)
+            
+            P001 - 파트
+            
+            T001 - 팀정보
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.StandardYMD">
+            <summary>
+            기준일자
+            yyyyMMdd 형태 string
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.DepartSearchOption.CurDepartCode">
+            <summary>
+            현 부서코드 (자기 자신의 부서코드만 조회해야할 경우)
+            StandardYMD 가 있는 경우만 해당
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Fasoo.FasooExtension">
+            <summary>
+            Fasoo Extension
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.Fasoo_GetFileType(WORKPACKAGERV3Lib.WorkPackagerADK,System.String)">
+            <summary>
+            파수 제공 :: 
+            설명 : 암호화된 파일인지 체크 합니다.
+            리턴내용
+            - 20  : 파일을 찾을 수 없습니다.
+            - 21  : 파일 사이즈가 0 입니다.
+            - 22  : 파일을 읽을 수 없습니다.
+            - 29  : 암호화 파일이 아닙니다.
+            - 26  : FSD 파일입니다.
+            - 105 : Wrapsody 파일입니다.
+            - 101 : MarkAny 파일입니다.
+            - 104 : INCAPS 파일입니다.
+            - 103 : FSN 파일입니다.
+            - 106 : NX 파일입니다.
+            - 107 : NASCA 파일입니다.
+            
+            참고
+            FSD : 서버 DRM
+            FSN : PC DRM
+            Wrapsody : 메일 DRM
+            </summary>
+            <param name="workPackager">WorkPackagerADK</param>
+            <param name="fileFullPath">파일경로</param>
+            <returns>파일 정보를 int 형으로 Return</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.Fasoo_DoPackagingFsn2(WORKPACKAGERV3Lib.WorkPackagerADK,System.String,System.String,System.String)">
+            <summary>
+            파수 제공 :: 
+            Fsn2.0 형식의 암호화 작업을 진행합니다.
+            </summary>
+            <param name="workPackager">WorkPackagerADK</param>
+            <param name="sourceFile">암호화 하고자 하는 원본 파일</param>
+            <param name="targetFile">암호화 후 생성 하고자 하는 파일</param>
+            <param name="userId">생성자(등록자) ID</param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.GetUserGroup(System.Int32)">
+            <summary>
+            사용자 그룹 리턴
+            </summary>
+            <param name="userGrade">사용자 등급</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.ProgramFilesx86">
+            <summary>
+            Programe Files 폴더 경로 리턴 (32bit, 64bit 에 따라서)
+            </summary>
+            <returns>Programe Files 폴더 경로</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.GetServerId(WORKPACKAGERV3Lib.WorkPackagerADK,System.String)">
+            <summary>
+            서버 ID 확인
+            </summary>
+            <param name="workPackager"></param>
+            <param name="fileFullPath">확인 파일 경로</param>
+            <returns>서버 ID</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooExtension.Fasoo_DoExtract(WORKPACKAGERV3Lib.WorkPackagerADK,System.String,System.String)">
+            <summary>
+            복호화 작업을 진행합니다.
+            </summary>
+            <param name="workPackager"></param>
+            <param name="sourceFile">복호화 하고자 하는 원본 파일</param>
+            <param name="targetFile">복호화 후 생성 하고자 하는 파일</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.Fasoo.FasooFunc">
+            <summary>
+            Fasoo 문서보안 관련 Class
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooFunc.FSDEncryption(System.String,System.String,System.String,System.String)">
+            <summary>
+            암호화
+            </summary>
+            <param name="sourceFileFullPath">소스파일</param>
+            <param name="encrypFileFullPath">암호화 후 파일</param>
+            <param name="Contents">컨텐츠</param>
+            <param name="loginUserID">로그인사번</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.Fasoo.FasooFunc.FSDDecryption(System.String,System.String,System.String)">
+            <summary>
+            복호화
+            </summary>
+            <param name="sourceFileFullPath">암호화 파일</param>
+            <param name="decrypFileFullPath">복화할 파일</param>
+            <param name="userId">복호화 사번</param>
+            <returns>결과</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.FTP.FtpUtil">
+            <summary>
+            FTP를 위한 유틸 클래스입니다.
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.FTP.FtpUtil.host">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.FTP.FtpUtil.Host">
+            <summary>
+            FTP 서버 호스트명(IP)를 가져옵니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.FTP.FtpUtil.UserName">
+            <summary>
+            사용자 명을 가져옵니다.
+            </summary>
+        </member>
+        <member name="P:Cesco.FW.Global.Util.FTP.FtpUtil.Password">
+            <summary>
+            비밀번호를 가져옵니다.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.#ctor(System.String,System.String,System.String)">
+            <summary>
+            FtpUtil의 새 인스턴스를 생성합니다.
+            </summary>
+            <param name="host">FTP 서버 주소 입니다.</param>
+            <param name="userName">FTP 사용자 아이디 입니다.</param>
+            <param name="password">FTP 비밀번호 입니다.</param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.#ctor(Cesco.FW.Global.Util.FTP.FtpUtil.FtpServer)">
+            <summary>
+            FtpUtil의 새 인스턴스를 생성합니다.
+            </summary>
+            <param name="ftpServer">ftpServer종류 입니다.</param>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.FTP.FtpUtil.FtpServer">
+            <summary>
+            FTP 서버 종류
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.FTP.FtpUtil.FtpServer.Mobile">
+            <summary>
+            모바일서버FTP 주소입니다. mobile.cesco.biz
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.FTP.FtpUtil.FtpServer.CescoFtp">
+            <summary>
+            기본적인 세스코 db 입니다.
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.Upload(System.String,System.String)">
+            <summary>
+            파일을 FTP 서버에 업로드 합니다.
+            </summary>
+            <param name="localFileFullPath">로컬 파일의 전체 경로 입니다.</param>
+            <param name="ftpFilePath"><para>파일을 업로드 할 FTP 전체 경로 입니다.</para><para>하위 디렉터리에 넣는 경우 /디렉터리명/파일명.확장자 형태 입니다.</para></param>
+            <exception cref="T:System.IO.FileNotFoundException">지정한 로컬 파일(localFileFullPath)이 없을 때 발생합니다.</exception>
+            <returns>업로드 성공 여부입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.IsFTPFileExsit(System.String)">
+            <summary>
+            해당 경로에 파일이 존재하는지 여부를 가져옵니다.
+            </summary>
+            <param name="ftpFilePath">파일 경로</param>
+            <returns>존재시 참 </returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.GetDirectoryPath(System.String)">
+            <summary>
+            FTP 풀 경로에서 Directory 경로만 가져옵니다.
+            </summary>
+            <param name="ftpFilePath">FTP 풀 경로</param>
+            <returns>디렉터리 경로입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.GetFileName(System.String)">
+            <summary>
+            FTP 풀 경로에서 파일이름만 가져옵니다.
+            </summary>
+            <param name="ftpFilePath">FTP 풀 경로</param>
+            <returns>파일명입니다.</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.FTPDirectioryCheck(System.String)">
+            <summary>
+            FTP 경로의 디렉토리를 점검하고 없으면 생성
+            </summary>
+            <param name="directoryPath">디렉터리 경로 입니다.</param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.IsExtistDirectory(System.String)">
+            <summary>
+            FTP에 해당 디렉터리가 있는지 알아온다.
+            </summary>
+            <param name="currentDirectory">디렉터리 명</param>
+            <returns>있으면 참</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.GetParentDirectory(System.String)">
+            <summary>
+            상위 디렉터리를 알아옵니다.
+            </summary>
+            <param name="currentDirectory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.GetCredentials">
+            <summary>
+            인증을 가져옵니다.
+            </summary>
+            <returns>인증</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.MakeDirectory(System.String)">
+            <summary>
+            FTP에 해당 디렉터리를 만든다.
+            </summary>
+            <param name="dirpath"></param>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.FTP.FtpUtil.LocalFileValidationCheck(System.String)">
+            <summary>
+            지정한 로컬 파일이 실제 존재하는지 확인합니다.
+            </summary>
+            <param name="localFileFullPath">로컬 파일의 전체 경로입니다.</param>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.FTP.CharacterEncrypt.key">
+            <summary>
+             작업자 : 조정현 주임
+             작업일 : 09.04.01
+             내용 : 문자 암호화/복호화 모듈 개발.
+             활용
+             1. 매뉴얼 Hyperlink 시 Parameters 값 암호화 처리.
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.AuthenticateInfoHandler">
+            <summary>
+            권한 처리
+            </summary>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.AuthenticateInfoHandler.GetAuthenticate(System.String,System.String,System.String,System.String)">
+            <summary>
+            권한 조회
+            </summary>
+            <param name="programeNo">롤 ID</param>
+            <param name="staffId">접속자 사번</param>
+            <param name="stndardDate">기준일자</param>
+            <param name="realConnId">실 접속자 사번</param>
+            <exception cref="T:System.Exception">권한조회 오류들 리턴</exception>
+            <returns>권한정보 목록</returns>
+        </member>
+        <member name="M:Cesco.FW.Global.Util.AuthenticateInfoHandler.IsAuthed(System.Collections.Generic.List{Cesco.FW.Global.Util.AuthenticateInfo},System.String)">
+            <summary>
+            권한 조회
+            
+            권한 목록에서 해당하는 권한 번호가 존재하는지 확인 한다.
+            권한번호는 권한 부여 메뉴를 참고 하기 바란다.
+            </summary>
+            <param name="auths">권한목록</param>
+            <param name="authNo">권한번호</param>
+            <returns>권한 체크</returns>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.AuthenticateInfo">
+            <summary>
+            권한정보
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.ProgrameNo">
+            <summary>
+            프로그램 번호
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.ProgrameId">
+            <summary>
+            프로그램 식별자
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.ProgrameName">
+            <summary>
+            프로그램 명
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.AuthenticateNo">
+            <summary>
+            권한번호
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.AuthenticateName">
+            <summary>
+            권한명칭
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.IsRoled">
+            <summary>
+            롤 부여 여부
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.AuthenticateInfo.RoleInfos">
+            <summary>
+            부여된 롤 리스트
+            </summary>
+        </member>
+        <member name="T:Cesco.FW.Global.Util.RoleInfo">
+            <summary>
+            롤 정보
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.RoleInfo.RoleNo">
+            <summary>
+            부여된 롤 번호
+            </summary>
+        </member>
+        <member name="F:Cesco.FW.Global.Util.RoleInfo.RoleName">
+            <summary>
+            부여된 롤 명칭
+            </summary>
+        </member>
+    </members>
+</doc>

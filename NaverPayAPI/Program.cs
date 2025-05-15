@@ -16,6 +16,9 @@ namespace NaverPayAPI
         [STAThread] //vvvvvvv
         static void Main()
         {
+            //네이버 측에서 TLS 버전 업 요청 (기존 tls10, 11로 호출하고 있었음)
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
             RealThing();
             NonRealThing();
         }
